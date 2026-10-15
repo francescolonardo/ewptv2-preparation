@@ -595,7 +595,7 @@ Content-Length: 4061
 [...]
 
 	<div class="media-body">
-	     <a href='uploads/test.jpg'>File Uploaded Succesfully</a>📌                   </div>
+	     <a href='uploads/test.php'>File Uploaded Succesfully</a>📌                    </div>
 
 [...]
 ```

